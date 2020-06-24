@@ -17,11 +17,10 @@ import static io.qameta.allure.Allure.step;
 @Story("Selenide Chromeindustries check price tests")
 @Tag("chrome_tests")
 class ChromeTests extends TestBase {
-    @BeforeEach
-    void MaxBrowserWindow(){
-        Configuration.startMaximized = true;
-    }
-
+//    @BeforeEach
+//    void MaxBrowserWindow(){
+//        Configuration.startMaximized = true;
+//    }
     @Test
     @Description("Open page, find Вклады button, select closest A, then click")
     @DisplayName("Open main page, click on Вклады button by closest A")
