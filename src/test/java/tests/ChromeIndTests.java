@@ -61,7 +61,8 @@ class ChromeIndTests extends TestBase {
             $$(".product-card--name").find(value("Vega"));
         });
         step("Go Vega Brief page, price should be " + checkPrice, () -> {
-            $$("a").findBy(text("Vega 2.0 Transit Brief")).click();
+//            $$("a").findBy(text("Vega 2.0 Transit Brief")).click();
+            $(byText("Vega 2.0 Transit Brief")).click();
             $(".desc").shouldHave(text(checkPrice));
         });
 
