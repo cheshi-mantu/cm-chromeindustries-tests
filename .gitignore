@@ -36,4 +36,3 @@ target/
 .vscode
 .allure/
 gradlew.bat
-gradlew
