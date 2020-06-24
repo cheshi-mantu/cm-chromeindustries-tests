@@ -23,7 +23,7 @@ public class CustomWebDriver implements WebDriverProvider {
         capabilities.setBrowserName(CHROME);
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", false);
-        capabilities.setCapability("videoFrameRate", 24);
+//        capabilities.setCapability("videoFrameRate", 24);
         capabilities.setCapability(ChromeOptions.CAPABILITY, buildChromeOptions());
         WebDriverManager.chromedriver().setup();
 
