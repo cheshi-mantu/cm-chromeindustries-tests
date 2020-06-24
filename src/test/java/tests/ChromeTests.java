@@ -37,7 +37,7 @@ class ChromeTests extends TestBase {
         });
         step("Click country selector, select currency", () -> {
             $(byId("gle_selectedCountry")).click();
-            $(byText("Russia")).click();
+            $(by("value", "RU")).click();
             $(byId("gle_selectedCurrency")).shouldHave(text("Russian Ruble"));
         });
         step("Click SAVE", () -> {
