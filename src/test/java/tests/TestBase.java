@@ -21,7 +21,6 @@ public class TestBase {
     }
     @BeforeEach
     public void BeforeEachTest(){
-//        Configuration.browser = CustomWebDriver.class.getName();
         Configuration.startMaximized = true;
     }
     @AfterEach
@@ -31,6 +30,6 @@ public class TestBase {
         attachPageSource();
         attachAsText("Browser console logs", getConsoleLogs());
         closeWebDriver();
-        if (isVideoOn) attachVideo(sessionId); // in browserstack video url generates after driver close
+        if (isVideoOn) attachVideo(sessionId);
     }
 }
