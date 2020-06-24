@@ -30,10 +30,10 @@ class ChromeTests extends TestBase {
             open(url);
         });
         step("Check pop-up \'We ship to\'", () -> {
-            $("[data-key='NowShipping']").shouldBe(visible);
+            $("#globale_popup").shouldBe(visible);
         });
         step("Click \'Change your shipping country\'", () -> {
-            $(byText("Change your shipping country")).click();
+            $("[data-action='ShippingSwitcher']").click();
         });
         step("Click country selector, select currency", () -> {
             $(byId("gle_selectedCountry")).click();
