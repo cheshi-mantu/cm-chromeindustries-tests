@@ -19,10 +19,6 @@ public class DriverHelper {
         Configuration.timeout = 10000;
     }
 
-    public static By byTestId(String testId) {
-            return by("data-testid",  testId);
-    }
-
     public static String getSessionId(){
         return ((RemoteWebDriver) getWebDriver()).getSessionId().toString().replace("selenoid","");
     }
