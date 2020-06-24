@@ -30,7 +30,8 @@ class ChromeTests extends TestBase {
             open(url);
         });
         step("Check pop-up \'We ship to\'", () -> {
-            $("#globale_popup").shouldBe(visible);
+//            $("#globale_popup").shouldBe(visible);
+            $("div.glPopupContent").shouldBe(visible);
         });
         step("Click \'Change your shipping country\'", () -> {
             $("[data-action='ShippingSwitcher']").click();
@@ -51,14 +52,16 @@ class ChromeTests extends TestBase {
         step("Check if navigation bar has /'Bags/'", () -> {
             $("ul.nav-container li a").shouldHave(text("Bags"));
         });
-        step("Go to treadwell bags collection", () -> {
+        step("Hover the main menu over \'Bags\' treadwel should be present in the drop down", () -> {
             $("ul.nav-container li a").shouldHave(text("Bags")).hover();
             $(".columns-4.sub-cat-menu-item.sub-cat-menu-list").shouldHave(text("treadwell"));
+        });
+        step("Go to treadwell bags collection, Vega should be present on the page", () -> {
             $("[data-gtm-link='treadwell travel collection']").click();
             $$(".product-card--name").find(value("Vega"));
         });
-        step("Go to heritage bags", () -> {
-            $$("div.product-card--name").findBy(text("Vega 2.0 Transit Brief")).click();
+        step("Go Vega Brief page, price should be " + checkPrice, () -> {
+            $$("a").findBy(text("Vega 2.0 Transit Brief")).click();
             $(".desc").shouldHave(text(checkPrice));
         });
 
