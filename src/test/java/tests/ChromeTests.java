@@ -53,7 +53,7 @@ class ChromeTests extends TestBase {
         });
         step("Go to heritage bags", () -> {
             $$(".product-card--content").find(text("Vega 2.0 Transit Brief")).click();
-            $(".desc").shouldHave(text("11,500"));
+            $(".desc").shouldHave(text(checkPrice));
         });
 
     }
