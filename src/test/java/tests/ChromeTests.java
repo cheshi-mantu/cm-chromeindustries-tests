@@ -13,20 +13,20 @@ import static com.codeborne.selenide.Selenide.*;
 import static helpers.Environment.*;
 import static io.qameta.allure.Allure.step;
 
-@Epic("QA.GURU QA automation course")
-@Story("Selenide Chromeindustries check price tests")
+@Epic("Chrome Industries UI tests")
+@Story("Selenide Chromeindustries check price for Vega 2.0 bag test")
 @Tag("chrome_tests")
 class ChromeTests extends TestBase {
-//    @BeforeEach
-//    void MaxBrowserWindow(){
-//        Configuration.startMaximized = true;
-//    }
     @Test
-    @Description("Open page, find Вклады button, select closest A, then click")
-    @DisplayName("Open main page, click on Вклады button by closest A")
+    @Description("Open main page, " +
+            "select shipment to Russia" +
+            "navigate to treadwell collection" +
+            "find Vega 2.0. Transit bag" +
+            "check for price against the value from command line -Dcheck_price")
+    @DisplayName("Navigate from main page to Vega 2.0 Brief")
     void mainPageSelectCountry() {
 //        Configuration.browser = "opera";
-        step ("Open chrome main page", () -> {
+        step ("Open " + url, () -> {
             open(url);
         });
         step("Check pop-up \'We ship to\'", () -> {
@@ -35,24 +35,30 @@ class ChromeTests extends TestBase {
         step("Click \'Change your shipping country\'", () -> {
             $("[data-action='ShippingSwitcher']").click();
         });
-        step("Click country selector, select currency", () -> {
+        step("Click country selector, select country by list value => RU" +
+                "Check if Currency is set to RUB", () -> {
             $(byId("gle_selectedCountry")).click();
             $(by("value", "RU")).click();
-            $(byId("gle_selectedCurrency")).shouldHave(text("Russian Ruble"));
+            $(byId("gle_selectedCurrency")).shouldHave(value("RUB"));
         });
-        step("Click SAVE", () -> {
+        step("Click SAVE on country selector" +
+                "check that country flag in the upper right corner is set" +
+                "to Russian", () -> {
             $("[data-key='SavenClose']").click();
             $("#shippingSwitcherLink").shouldHave(cssClass("flag-ru"));
             $("ul.nav-container li a").shouldHave(text("Bags"));
         });
-        step("Go to heritage bags", () -> {
+        step("Check if navigation bar has /'Bags/'", () -> {
+            $("ul.nav-container li a").shouldHave(text("Bags"));
+        });
+        step("Go to treadwell bags collection", () -> {
             $("ul.nav-container li a").shouldHave(text("Bags")).hover();
             $(".columns-4.sub-cat-menu-item.sub-cat-menu-list").shouldHave(text("treadwell"));
             $("[data-gtm-link='treadwell travel collection']").click();
-            $(".grid-col").shouldHave(text("Vega 2.0 Transit Brief"));
+            $$(".product-card--name").find(value("Vega"));
         });
         step("Go to heritage bags", () -> {
-            $$(".product-card--content").find(text("Vega 2.0 Transit Brief")).click();
+            $$("div.product-card--name").findBy(text("Vega 2.0 Transit Brief")).click();
             $(".desc").shouldHave(text(checkPrice));
         });
 
