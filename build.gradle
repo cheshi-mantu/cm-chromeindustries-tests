@@ -64,7 +64,7 @@ tasks.withType(Test) {
     systemProperties = System.properties
 }
 
-task tkb_tests(type: Test) {
+task chrome_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'chrome_tests'
     }
