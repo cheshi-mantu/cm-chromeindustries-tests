@@ -16,7 +16,7 @@ public class DriverHelper {
 
     public static void configureSelenide() {
         Configuration.browser = CustomWebDriver.class.getName();
-        Configuration.timeout = 6000;
+        Configuration.timeout = 10000;
     }
 
     public static By byTestId(String testId) {
