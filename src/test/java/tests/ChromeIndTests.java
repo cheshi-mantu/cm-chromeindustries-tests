@@ -14,9 +14,9 @@ import static helpers.Environment.*;
 import static io.qameta.allure.Allure.step;
 
 @Epic("Chrome Industries UI tests")
-@Story("Selenide Chromeindustries check price for Vega 2.0 bag test")
-@Tag("chrome_tests")
-class ChromeTests extends TestBase {
+@Story("Selenide Chrome industries check price for Vega 2.0 bag test")
+@Tag("chrome_ind_tests")
+class ChromeIndTests extends TestBase {
     @Test
     @Description("Open main page, " +
             "select shipment to Russia" +
