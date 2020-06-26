@@ -52,12 +52,12 @@ class ChromeIndTests extends TestBase {
         step("Check if navigation bar has /'Bags/'", () -> {
             $("ul.nav-container li a").shouldHave(text("Bags"));
         });
-        step("Hover the main menu over \'Bags\' treadwel should be present in the drop down", () -> {
+        step("Hover the main menu over \'Bags\' laptop should be present in the drop down", () -> {
             $("ul.nav-container li a").shouldHave(text("Bags")).hover();
-            $(".columns-4.sub-cat-menu-item.sub-cat-menu-list").shouldHave(text("treadwell"));
+            $$("div.columns-4.sub-cat-menu-item.sub-cat-menu-list").find(text("laptop bags"));
         });
-        step("Go to treadwell bags collection, Vega should be present on the page", () -> {
-            $("[data-gtm-link='treadwell travel collection']").click();
+        step("Go to laptop bags collection, Vega should be present on the page", () -> {
+            $("[data-gtm-link='bags | laptop bags']").click();
             $$(".product-card--name").find(value("Vega"));
         });
         step("Go Vega Brief page, price should be " + checkPrice, () -> {
