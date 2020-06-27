@@ -47,13 +47,13 @@ class ChromeIndTests extends TestBase {
                 "to Russian", () -> {
             $("[data-key='SavenClose']").click();
             $("#shippingSwitcherLink").shouldHave(cssClass("flag-ru"));
-            $("ul.nav-container li a").shouldHave(text("Bags"));
+            $("ul.nav-container").shouldHave(text("Bags"));
         });
         step("Check if navigation bar has /'Bags/'", () -> {
-            $("ul.nav-container li a").shouldHave(text("Bags"));
+            $("ul.nav-container").shouldHave(text("Bags"));
         });
         step("Hover the main menu over \'Bags\' laptop should be present in the drop down", () -> {
-            $("ul.nav-container li a").shouldHave(text("Bags")).hover();
+            $$("ul.nav-container li").findBy(text("Bags")).hover();
             $$("div.columns-4.sub-cat-menu-item.sub-cat-menu-list").find(text("laptop bags"));
         });
         step("Go to laptop bags collection, Vega should be present on the page", () -> {
