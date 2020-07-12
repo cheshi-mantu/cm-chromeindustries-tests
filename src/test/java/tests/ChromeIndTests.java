@@ -1,9 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import io.qameta.allure.Story;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Condition.*;
@@ -14,23 +12,25 @@ import static helpers.Environment.*;
 import static io.qameta.allure.Allure.step;
 
 @Epic("Chrome Industries UI tests")
-@Story("Selenide Chrome industries check price for Vega 2.0 bag test")
+@Feature("Check price list item price - Vega Brief 2.0")
+@Story("Check price for Vega 2.0 bag test")
 @Tag("chrome_ind_tests")
 class ChromeIndTests extends TestBase {
     @Test
+    @AllureId("682")
+    @DisplayName("Navigate from main page to Vega 2.0 Brief and check its price")
+    @Story("Check price for Vega 2.0 bag test")
+    @Feature("Check price list item price - Vega Brief 2.0")
     @Description("Open main page, " +
             "select shipment to Russia" +
-            "navigate to treadwell collection" +
+            "navigate to bags => laptop bags" +
             "find Vega 2.0. Transit bag" +
             "check for price against the value from command line -Dcheck_price")
-    @DisplayName("Navigate from main page to Vega 2.0 Brief")
-    void mainPageSelectCountry() {
-//        Configuration.browser = "opera";
+    void checkVegaBriefPrice() {
         step ("Open " + url, () -> {
             open(url);
         });
         step("Check pop-up \'We ship to\'", () -> {
-//            $("#globale_popup").shouldBe(visible);
             $("div.glPopupContent").shouldBe(visible);
         });
         step("Click \'Change your shipping country\'", () -> {
@@ -61,7 +61,6 @@ class ChromeIndTests extends TestBase {
             $$(".product-card--name").find(value("Vega"));
         });
         step("Go Vega Brief page, price should be " + checkPrice, () -> {
-//            $$("a").findBy(text("Vega 2.0 Transit Brief")).click();
             $(byText("Vega 2.0 Transit Brief")).click();
             $(".desc").shouldHave(text(checkPrice));
         });
