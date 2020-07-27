@@ -43,9 +43,9 @@ class ChromeIndTests extends TestBase {
         });
         step("Click country selector, select country by list value => RU" +
                 "Check if Currency is set to RUB", () -> {
-            $(byId("gle_selectedCountry")).click();
+            $("#gle_selectedCountry").click();
             $(by("value", "RU")).click();
-            $(byId("gle_selectedCurrency")).shouldHave(value("RUB"));
+            $("#gle_selectedCurrency").shouldHave(value("RUB"));
         });
         step("Click SAVE on country selector" +
                 "check that country flag in the upper right corner is set" +
