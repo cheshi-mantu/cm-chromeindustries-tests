@@ -22,6 +22,7 @@
 *.secret
 
 # Project gen files
+gradle/wrapper
 allure.properties
 .idea/
 .gradle/
@@ -36,3 +37,4 @@ target/
 .vscode
 .allure/
 gradlew.bat
+gradlew
