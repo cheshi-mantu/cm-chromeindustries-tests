@@ -54,6 +54,11 @@ class ChromeIndTests extends TestBase {
             $("#shippingSwitcherLink").shouldHave(cssClass("flag-ru"));
             $("ul.nav-container").shouldHave(text("Bags"));
         });
+        step("Get rid of cookies consent, if class notice--hide is displayed, then click it", () -> {
+            if ($(".notice--hide").isDisplayed()){
+                $(".notice--hide").click();
+            }
+        });
         step("Check if navigation bar has /'Bags/'", () -> {
             $("ul.nav-container").shouldHave(text("Bags"));
         });
@@ -65,11 +70,7 @@ class ChromeIndTests extends TestBase {
             $("[data-gtm-link='bags | laptop bags']").click();
             $$(".product-card--name").find(value("Vega"));
         });
-        step("Go Vega Brief page, price should be " + checkPrice, () -> {
-            if ($(".notice--hide").isDisplayed()){
-                $(".notice--hide").click();
-            }
-//            $(byText("Vega 2.0 Transit Brief")).scrollIntoView("{behavior:\"smooth\", block: \"start\", inline: \"nearest\"}");
+        step("Go Vega Brief page, price should be greater or equal to " + checkPrice, () -> {
             $(byText("Vega 2.0 Transit Brief")).parent().parent().parent().scrollIntoView(true);
             $(byText("Vega 2.0 Transit Brief")).click();
             String vegaTextVegaPrice = $(".product-price span").innerText();
