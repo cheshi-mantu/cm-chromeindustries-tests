@@ -21,7 +21,7 @@ public class TestBase {
     }
     @BeforeEach
     public void BeforeEachTest(){
-        Configuration.startMaximized = true;
+
     }
     @AfterEach
     public void afterEach(){
