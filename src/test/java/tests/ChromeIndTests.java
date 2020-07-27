@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import helpers.AttachmentsHelper;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
 
@@ -10,6 +11,10 @@ import static com.codeborne.selenide.Selenide.*;
 
 import static helpers.Environment.*;
 import static io.qameta.allure.Allure.step;
+import static java.lang.Integer.parseInt;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.greaterThanOrEqualTo;
+import static org.hamcrest.Matchers.is;
 
 @Epic("Chrome Industries UI tests")
 @Feature("Check price list item price - Vega Brief 2.0")
@@ -61,10 +66,13 @@ class ChromeIndTests extends TestBase {
             $$(".product-card--name").find(value("Vega"));
         });
         step("Go Vega Brief page, price should be " + checkPrice, () -> {
-
             $(byText("Vega 2.0 Transit Brief")).scrollIntoView(true);
             $(byText("Vega 2.0 Transit Brief")).click();
-            $(".desc").shouldHave(text(checkPrice));
+            String vegaTextVegaPrice = $(".product-price span").innerText();
+            AttachmentsHelper.attachAsText("Current proce on page", vegaTextVegaPrice);
+            System.out.println("Current Vega 2.0 price: " + vegaTextVegaPrice);
+            Integer vegaIntPrice = parseInt(vegaTextVegaPrice.split(",")[0]);
+            assertThat(vegaIntPrice, is(greaterThanOrEqualTo(parseInt(checkPrice))));
         });
 
     }
