@@ -66,12 +66,11 @@ class ChromeIndTests extends TestBase {
             $$(".product-card--name").find(value("Vega"));
         });
         step("Go Vega Brief page, price should be " + checkPrice, () -> {
-//            $(byText("Vega 2.0 Transit Brief")).scrollIntoView("{behavior:\"smooth\", block: \"start\", inline: \"nearest\"}");
-//            $(byText("Vega 2.0 Transit Brief")).scrollIntoView(false);
-            $(byText("Vega 2.0 Transit Brief")).scrollTo();
             if ($(".notice--hide").isDisplayed()){
                 $(".notice--hide").click();
             }
+//            $(byText("Vega 2.0 Transit Brief")).scrollIntoView("{behavior:\"smooth\", block: \"start\", inline: \"nearest\"}");
+            $(byText("Vega 2.0 Transit Brief")).parent().parent().parent().scrollIntoView(false);
             $(byText("Vega 2.0 Transit Brief")).click();
             String vegaTextVegaPrice = $(".product-price span").innerText();
             AttachmentsHelper.attachAsText("Current price on page", vegaTextVegaPrice);
@@ -79,7 +78,6 @@ class ChromeIndTests extends TestBase {
             Integer vegaIntPrice = parseInt(vegaTextVegaPrice.split(",")[0]);
             assertThat(vegaIntPrice, is(greaterThanOrEqualTo(parseInt(checkPrice))));
         });
-
     }
 
 }
