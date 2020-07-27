@@ -5,7 +5,7 @@ public class Environment {
         url = System.getProperty("url","https://www.chromeindustries.com/"),
         remoteDriverUrl = System.getProperty("remote_driver_url"),
         videoStorageUrl = System.getProperty("video_storage_url"),
-        checkPrice = System.getProperty("check_price", "11,");
+        checkPrice = System.getProperty("check_price", "11");
     public static boolean
         isRemoteDriver = remoteDriverUrl != null,
         isVideoOn = videoStorageUrl != null;
