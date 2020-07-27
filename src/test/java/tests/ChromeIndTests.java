@@ -70,7 +70,7 @@ class ChromeIndTests extends TestBase {
                 $(".notice--hide").click();
             }
 //            $(byText("Vega 2.0 Transit Brief")).scrollIntoView("{behavior:\"smooth\", block: \"start\", inline: \"nearest\"}");
-            $(byText("Vega 2.0 Transit Brief")).parent().parent().parent().scrollIntoView(false);
+            $(byText("Vega 2.0 Transit Brief")).parent().parent().parent().scrollIntoView(true);
             $(byText("Vega 2.0 Transit Brief")).click();
             String vegaTextVegaPrice = $(".product-price span").innerText();
             AttachmentsHelper.attachAsText("Current price on page", vegaTextVegaPrice);
