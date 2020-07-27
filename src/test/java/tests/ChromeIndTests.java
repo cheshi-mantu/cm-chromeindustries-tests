@@ -69,7 +69,7 @@ class ChromeIndTests extends TestBase {
             $(byText("Vega 2.0 Transit Brief")).scrollIntoView(true);
             $(byText("Vega 2.0 Transit Brief")).click();
             String vegaTextVegaPrice = $(".product-price span").innerText();
-            AttachmentsHelper.attachAsText("Current proce on page", vegaTextVegaPrice);
+            AttachmentsHelper.attachAsText("Current price on page", vegaTextVegaPrice);
             System.out.println("Current Vega 2.0 price: " + vegaTextVegaPrice);
             Integer vegaIntPrice = parseInt(vegaTextVegaPrice.split(",")[0]);
             assertThat(vegaIntPrice, is(greaterThanOrEqualTo(parseInt(checkPrice))));
