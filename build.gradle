@@ -30,9 +30,11 @@ ext {
 }
 
 repositories {
+    maven {url = "https://dl.bintray.com/qameta/maven-unstable/"}
     jcenter()
     mavenCentral()
 }
+
 
 
 allure {

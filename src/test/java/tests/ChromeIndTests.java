@@ -1,6 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
 import helpers.AttachmentsHelper;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
