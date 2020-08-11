@@ -36,7 +36,6 @@ repositories {
 }
 
 
-
 allure {
     version = "${allureVersion}"
     autoconfigure = true
@@ -47,12 +46,14 @@ allure {
 }
 
 dependencies {
+    implementation 'io.qameta.allure:allure-jenkins:3.21.2'
     testImplementation 'org.aspectj:aspectjweaver:1.9.5'
     testImplementation 'com.codeborne:selenide:5.12.2'
     testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
     testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
     testImplementation 'io.rest-assured:rest-assured:4.1.2'
     testImplementation 'ch.qos.logback:logback-classic:1.2.3'
+    testImplementation 'io.qameta.allure:allure-ee-junit-platform:3.28.2'
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
