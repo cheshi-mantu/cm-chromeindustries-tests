@@ -46,7 +46,6 @@ allure {
 }
 
 dependencies {
-    implementation 'io.qameta.allure:allure-jenkins:3.21.2'
     testImplementation 'org.aspectj:aspectjweaver:1.9.5'
     testImplementation 'com.codeborne:selenide:5.12.2'
     testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
