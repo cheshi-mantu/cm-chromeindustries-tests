@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.Condition;
 import helpers.AttachmentsHelper;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
@@ -35,7 +36,7 @@ class ChromeIndTests extends TestBase {
             open(url);
         });
         step("Check pop-up \'We ship to\'", () -> {
-            $("#globale_popup").waitUntil(visible);
+            $("#globale_popup").waitUntil(visible,5000);
 //            $("#globale_popup").shouldBe(visible);
 //            $("div.glPopupContent").shouldBe(visible);
         });
