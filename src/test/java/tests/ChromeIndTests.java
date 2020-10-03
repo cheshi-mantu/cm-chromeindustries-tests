@@ -35,12 +35,13 @@ class ChromeIndTests extends TestBase {
         step ("Open " + url, () -> {
             open(url);
         });
-        step("Check pop-up \'We ship to\'", () -> {
-            $("#globale_popup").waitUntil(visible,5000);
-//            $("#globale_popup").shouldBe(visible);
-//            $("div.glPopupContent").shouldBe(visible);
+        step("Check pop-up 'We ship to'", () -> {
+            $("#globale_popup").waitUntil(visible,10000);
         });
-        step("Click \'Change your shipping country\'", () -> {
+        step("Check pop-up 'We ship to'", () -> {
+            $("#globale_popup").shouldBe(visible);
+        });
+        step("Click 'Change your shipping country'", () -> {
             $("[data-action='ShippingSwitcher']").click();
         });
         step("Click country selector, select country by list value => RU" +
@@ -61,10 +62,10 @@ class ChromeIndTests extends TestBase {
                 $(".notice--hide").click();
             }
         });
-        step("Check if navigation bar has /'Bags/'", () -> {
+        step("Check if navigation bar has 'Bags'", () -> {
             $("ul.nav-container").shouldHave(text("Bags"));
         });
-        step("Hover the main menu over \'Bags\' laptop should be present in the drop down", () -> {
+        step("Hover the main menu over 'Bags' laptop should be present in the drop down", () -> {
             $$("ul.nav-container li").findBy(text("Bags")).hover();
             $$("div.columns-4.sub-cat-menu-item.sub-cat-menu-list").find(text("laptop bags"));
         });
