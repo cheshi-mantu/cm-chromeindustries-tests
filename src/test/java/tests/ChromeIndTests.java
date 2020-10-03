@@ -35,7 +35,9 @@ class ChromeIndTests extends TestBase {
             open(url);
         });
         step("Check pop-up \'We ship to\'", () -> {
-            $("div.glPopupContent").shouldBe(visible);
+            $("#globale_popup").waitUntil(visible);
+//            $("#globale_popup").shouldBe(visible);
+//            $("div.glPopupContent").shouldBe(visible);
         });
         step("Click \'Change your shipping country\'", () -> {
             $("[data-action='ShippingSwitcher']").click();

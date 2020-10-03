@@ -36,3 +36,4 @@ target/
 .vscode
 .allure/
 gradlew.*
+gradlew
