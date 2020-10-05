@@ -55,13 +55,13 @@ dependencies {
     testImplementation 'io.qameta.allure:allure-ee-junit-platform:3.28.2'
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+//    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
-//this is added to pass the system properties received from the command line when invoking gradle with tests
 tasks.withType(Test) {
     systemProperties = System.properties
 }
