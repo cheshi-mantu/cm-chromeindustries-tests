@@ -22,6 +22,7 @@ import static org.hamcrest.Matchers.is;
 class ChromeIndTests extends TestBase {
     @Test
     @AllureId("682")
+    @Flaky
     @DisplayName("Navigate from main page to Vega 2.0 Brief and check its price")
     @Story("Check price for Vega 2.0 bag test")
     @Feature("Check price list item price - Vega Brief 2.0")
