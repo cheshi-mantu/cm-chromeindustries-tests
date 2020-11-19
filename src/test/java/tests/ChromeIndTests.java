@@ -35,12 +35,6 @@ class ChromeIndTests extends TestBase {
         step ("Open " + url, () -> {
             open(url);
         });
-//        step("Check pop-up 'We ship to'", () -> {
-//            $("#globale_popup").waitUntil(visible,10000);
-//        });
-//        step("Check pop-up 'We ship to'", () -> {
-//            $("#globale_popup").shouldBe(visible);
-//        });
         step("Check 'Change your shipping country' is available on the page", () -> {
             $("[data-action='ShippingSwitcher']").waitUntil(exist, 10000);
         });
