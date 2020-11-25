@@ -22,6 +22,7 @@ import static org.hamcrest.Matchers.is;
 class ChromeIndTests extends TestBase {
     @Test
     @AllureId("682")
+    @Flaky
     @DisplayName("Navigate from main page to Vega 2.0 Brief and check its price")
     @Story("Check price for Vega 2.0 bag test")
     @Feature("Check price list item price - Vega Brief 2.0")
@@ -34,12 +35,6 @@ class ChromeIndTests extends TestBase {
         step ("Open " + url, () -> {
             open(url);
         });
-//        step("Check pop-up 'We ship to'", () -> {
-//            $("#globale_popup").waitUntil(visible,10000);
-//        });
-//        step("Check pop-up 'We ship to'", () -> {
-//            $("#globale_popup").shouldBe(visible);
-//        });
         step("Check 'Change your shipping country' is available on the page", () -> {
             $("[data-action='ShippingSwitcher']").waitUntil(exist, 10000);
         });

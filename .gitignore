@@ -33,7 +33,7 @@ logs/
 target/
 .classpath
 .project
-.vscode
+.vscode/
 .allure/
 gradlew.*
 gradlew
