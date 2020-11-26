@@ -50,7 +50,6 @@ dependencies {
     testImplementation "com.codeborne:selenide:${selenideVersion}"
     testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
     testImplementation "io.qameta.allure:allure-rest-assured:${allureVersion}"
-    testImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"
     testImplementation 'ch.qos.logback:logback-classic:1.2.3'
     testImplementation 'io.qameta.allure:allure-ee-junit-platform:3.28.2'
 
