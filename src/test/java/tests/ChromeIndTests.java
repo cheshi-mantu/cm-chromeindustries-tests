@@ -11,9 +11,9 @@ import static com.codeborne.selenide.Selenide.*;
 import static helpers.Environment.*;
 import static io.qameta.allure.Allure.step;
 import static java.lang.Integer.parseInt;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.number.OrderingComparison.greaterThanOrEqualTo;
 
 @Epic("Chrome Industries UI tests")
 @Feature("Check price list item price - Vega Brief 2.0")
@@ -21,11 +21,8 @@ import static org.hamcrest.Matchers.is;
 @Tag("chrome_ind_tests")
 class ChromeIndTests extends TestBase {
     @Test
-    @AllureId("682")
     @Flaky
     @DisplayName("Navigate from main page to Vega 2.0 Brief and check its price")
-    @Story("Check price for Vega 2.0 bag test")
-    @Feature("Check price list item price - Vega Brief 2.0")
     @Description("Open main page, " +
             "select shipment to Russia" +
             "navigate to bags => laptop bags" +
