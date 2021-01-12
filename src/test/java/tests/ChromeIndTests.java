@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.Condition;
 import helpers.AttachmentsHelper;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.*;
@@ -33,7 +34,7 @@ class ChromeIndTests extends TestBase {
             open(url);
         });
         step("Check 'Change your shipping country' is available on the page", () -> {
-            $("[data-action='ShippingSwitcher']").waitUntil(exist, 10000);
+            $("[data-action='ShippingSwitcher']").should(exist);
         });
         step("Click 'Change your shipping country'", () -> {
             $("[data-action='ShippingSwitcher']").click();
@@ -61,10 +62,10 @@ class ChromeIndTests extends TestBase {
         });
         step("Hover the main menu over 'Bags' laptop should be present in the drop down", () -> {
             $$("ul.nav-container li").findBy(text("Bags")).hover();
-            $$("div.columns-4.sub-cat-menu-item.sub-cat-menu-list").find(text("laptop bags"));
+            $$("div.columns-4.sub-cat-menu-item.sub-cat-menu-list").find(text("travel bags"));
         });
-        step("Go to laptop bags collection, Vega should be present on the page", () -> {
-            $("[data-gtm-link='bags | laptop bags']").click();
+        step("Go to travel bags collection, Vega should be present on the page", () -> {
+            $("[data-gtm-link='bags | travel bags']").click();
             $$(".product-card--name").find(value("Vega"));
         });
         step("Go Vega Brief page, price should be greater or equal to " + checkPrice, () -> {

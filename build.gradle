@@ -20,7 +20,6 @@ group 'mantu.cheshi'
 version '1.0'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-defaultTasks 'help'
 
 ext {
     allureVersion = '2.13.7'
